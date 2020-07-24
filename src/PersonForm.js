@@ -103,7 +103,6 @@ class PersonForm extends React.Component {
         }
       }).then(
           resp=>{
-            //console.table(resp.data);
             this.setState({list: resp.data});
             this.list = resp.data;
             this.listPersons = this.list.map((p, i) =>
