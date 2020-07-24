@@ -30,12 +30,15 @@ class PersonForm extends React.Component {
     handleChangeName(event) {
         this.setState({name : event.target.value});
     }
+    
     handleChangeDni(event) {
         this.setState({dni : event.target.value});
     }
+    
     handleChangeEmail(event) {
         this.setState({email : event.target.value});
     }
+    
     handleClearForm(event)
     {
         //event.preventDefault();
@@ -44,6 +47,7 @@ class PersonForm extends React.Component {
         this.setState({email : ""});
         this.setState({id : -1});
     }
+    
     handleSubmitForm(event)
     {
         event.preventDefault();
@@ -64,30 +68,17 @@ class PersonForm extends React.Component {
     }
     
     personEdit(index){
-          //evt = el indice de la lista para obtener el object
-          //alert();
           console.log(index);
           var obj = this.list[index-1];
           this.setState({name: obj.name});
           this.setState({dni: obj.dni});
           this.setState({email: obj.email});
           this.setState({id: obj.id});
-          //this.state =  obj;
-          //this.name = "";
           
     }
+    
     personDelete(id, index){
-        //ejecuta POST
-        /*axios.post("http://localhost:8080/unapersona/",      //uri
-        JSON.stringify(this.form),   //data
-        { headers: {
-          'Content-type': 'application/x-www-form-urlencoded',
-          }
-        }).then(
-            resp=>{
-            console.log(resp);
-            this.refreshList();
-         });*/
+        
         if(window.confirm("Confirma eliminar la persona " + id + "?"))
         {
             
@@ -141,12 +132,11 @@ class PersonForm extends React.Component {
                 </tr>)
                 }
             );
-            this.setState({other: "work"});
+    
+            this.setState({detailCreated: true});
        });
     }
     render() {
-         //const numbers = [1, 2, 3, 4, 5];
-        
         return <div class="row">
         <div class="col-md-6">
             <div class="card">
